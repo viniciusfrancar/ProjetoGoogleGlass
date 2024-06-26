@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Glass</title>
+    <link rel="shortcut icon" href="_imagens/favicon-32x32.png" type="image/x-icon">
+    <link rel="stylesheet" href="_css/style.css">
+    <link rel="stylesheet" href="_css/form.css">
+    <script src="_javascript/funcoes.js"></script>
+    <script>
+        function calc_total() {
+            var quantidade = parseInt(document.getElementById('idquantidade').value);
+            total = quantidade * 1500;
+            document.getElementById('idpreco').value = total;
+        }
+    </script>
+</head>
+<body>
+    <div id="interface">
+        <header id="cabecalho">
+            <hgroup>
+                <h1>Google Glass</h1>
+                <h2>A revolução do Google está chegando</h2>
+                <img id="logo-glass" src="_imagens/glass-logo-peq.jpg" alt="">
+            </hgroup>
+            <hr>
+
+            <img id="icone" src="_imagens/contato.png">
+            <nav id="menu">
+                <ul>
+                    <li onmouseover="mudaFoto('_imagens/home.png')" onmouseout="mudaFoto('_imagens/contato.png')"><a href="index.html">Home</a></li>
+                    <li onmouseover="mudaFoto('_imagens/especificacoes.png')" onmouseout="mudaFoto('_imagens/contato.png')"><a href="specs.html">Especificações</a></li>
+                    <li onmouseover="mudaFoto('_imagens/fotos.png')" onmouseout="mudaFoto('_imagens/contato.png')"><a href="fotos.html">Fotos</a></li>
+                    <li onmouseover="mudaFoto('_imagens/multimidia.png')" onmouseout="mudaFoto('_imagens/contato.png')"><a href="multimidia.html">Multimídia</a></li>
+                    <li onmouseover="mudaFoto('_imagens/contato.png')" onmouseout="mudaFoto('_imagens/contato.png')"><a href="fale-conosco.html">Fale conosco</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <form action="mailto:viniciusdef2011@gmail.com" method="post" id="fContato" oninput="calc_total();">
+                <fieldset id="usuario">
+                    <legend>Identificação do Usuário</legend>
+
+                        <p><label for="idnome">Nome:</label> <input type="text" name="nome" id="idnome" size="20" maxlength="30" placeholder="Nome completo"></p>
+
+                        <p><label for="idsenha">Senha:</label> <input type="password" name="senha" id="idsenha" size="8" maxlength="8" placeholder="8 dígitos"></p>
+
+                        <p><label for="idemail">E-mail:</label> <input type="email" name="email" id="idemail" size="21" maxlength="30" placeholder="viniciusdef@gmail.com"></p>
+
+                        <fieldset id="sexo"><legend>Sexo: </legend>
+                            <input type="radio" name="sexo" id="idsexoMasc"> <label for="idsexoMasc">Masculino</label>
+                            <input type="radio" name="sexo" id="idsexoFem"><label for="idsexoFem">Feminino</label>
+                            <input type="radio" name="sexo" id="idsexoOutros"> <label for="idsexoOutros">Outros</label>
+                        </fieldset> 
+
+                        <p><label for="idnascimento">Data de Nascimento:</label> <input type="date" name="nascimento" id="idnascimento"></p>
+                </fieldset>
+
+                <fieldset id="endereco">        
+                    <legend>Endereço do Usuário</legend>
+                    <p><label for="idendereco">Endereço:</label> <input type="text" name="endereco" id="idendereco" placeholder="Rua Irajá"></p>
+
+                    <p><label for="idnumero">Número:</label> <input type="number" name="numero" id="idnumero" min="0" max="9999" placeholder="7410"></p>
+
+                    <p><label for="idestado">Estado:</label>                        
+                        <select name="nEstado" id="idestado">
+                            <optgroup label="Região Nordeste">
+                                <option value="PE">Pernambuco</option>
+                                <option value="PB">Paraíba</option>
+                                <option value="BA">Bahia</option>
+                            </optgroup>
+
+                            <optgroup label="Região Suldeste">
+                                <option value="SP">São Paulo</option>
+                                <option value="RJ">Rio de Janeiro</option>
+                                <option value="MG">Minas Gerais</option>
+                            </optgroup>
+
+                            <optgroup label="Região Sul">
+                                <option value="PR">Paraná</option>
+                                <option value="RS">Rio Grande do Sul</option>
+                                <option value="SC">Santa Catarina</option>
+                            </optgroup>
+                        </select>
+                    </p>
+
+                    <p><label for="idcidade">Cidade:</label> <input type="text" name="cidade" id="idcidade" size="20" maxlength="40" placeholder="Recife"></p>
+                    
+                </fieldset>   
+                
+                <fieldset id="mensagem">
+                    <legend>Mensagem do Usuário</legend>
+                        <p><label for="idgrau">Grau de Urgência:</label> Mín <input type="range" name="grau" id="idgrau" min="0" max="10" step="2"> Máx</p>
+
+                        <p><label for="idmensagem">Mensagem:</label> <textarea name="mensagem" id="idmensagem" cols="45" rows="5" placeholder="Digite uma mensagem"></textarea></p>
+                </fieldset>
+
+                <fieldset id="pedido">
+                    <legend>Quero um Google Glass</legend>
+                        <p><input type="checkbox" name="pedidoDisponivel" id="idpedidoDisponivel" checked> <label for="idpedidoDisponivel">Gostaria de adquirir um Google Glass quando disponível</label></p>
+
+                        <p><label for="idcor">Cor:</label> <input type="color" name="cor" id="idcor" value="#606060"></p>
+
+                        <p><label for="idquantidade">Quantidade:</label> <input type="number" name="quantidade" id="idquantidade" min="0" max="10" value="0"></p>
+
+                        <p><label for="idpreco">Preço Total: R$</label> <input type="text" name="preco" id="idpreco" size="6" min="0" placeholder="0,00"></p>
+                </fieldset>
+
+                <input type="image" src="_imagens/botao-enviar.png" alt="">
+
+        </form> 
+
+        </article>
+        </section>
+
+        <footer id="rodape">   
+        <p>Copyright &copy; 2024 - by Vinícius França
+        <br><a href="http://facebook.com" target="_blank">Facebook</a> | <a href="http://x.com" target="_blank">Twitter</a></p>
+        </footer>   
+    </div>
+</body>
+</html>
